@@ -66,16 +66,18 @@ public class RobotContainer {
   private void configureBindings() {
 
     // While the left bumper on operator controller is held, intake Fuel
-    // operatorController.leftBumper().whileTrue(new Intake(fuelSubsystem));
-    driverController.leftBumper().whileTrue(new Intake(fuelSubsystem));
+    operatorController.leftBumper().whileTrue(new Intake(fuelSubsystem));
+    // driverController.leftBumper().whileTrue(new Intake(fuelSubsystem));
+    
     // While the right bumper on the operator controller is held, spin up for 1
     // second, then launch fuel. When the button is released, stop.
-    // operatorController.rightBumper().whileTrue(new LaunchSequence(fuelSubsystem));
-    driverController.rightBumper().whileTrue(new LaunchSequence(fuelSubsystem));
+    operatorController.rightBumper().whileTrue(new LaunchSequence(fuelSubsystem));
+    // driverController.rightBumper().whileTrue(new LaunchSequence(fuelSubsystem));
+    
     // While the A button is held on the operator controller, eject fuel back out
     // the intake
-    // operatorController.a().whileTrue(new Eject(fuelSubsystem));
-    driverController.a().whileTrue(new Eject(fuelSubsystem));
+    operatorController.a().whileTrue(new Eject(fuelSubsystem));
+    // driverController.a().whileTrue(new Eject(fuelSubsystem));
 
     // Set the default command for the drive subsystem to the command provided by
     // factory with the values provided by the joystick axes on the driver
