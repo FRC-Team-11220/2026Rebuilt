@@ -57,5 +57,8 @@ public final class Constants {
     // help avoid turning too fast and beign difficult to control
     public static final double DRIVE_SCALING = .7;
     public static final double ROTATION_SCALING = .8;
+
+    //new variable for speedup
+    public static double ACCELERATION = 0.01;
   }
 }

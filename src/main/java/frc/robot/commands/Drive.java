@@ -15,7 +15,8 @@ public class Drive extends Command {
   /** Creates a new Drive. */
   CANDriveSubsystem driveSubsystem;
   CommandXboxController controller;
-
+  private double MovementSpeed = 0;
+  private double RotationSpeed = 0;
   public Drive(CANDriveSubsystem driveSystem, CommandXboxController driverController) {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(driveSystem);
@@ -34,8 +35,31 @@ public class Drive extends Command {
   // value). The X axis is scaled down so the rotation is more easily
   // controllable.
   @Override
+  //THIS DOESN'T CURRENTLY WORK!!!
   public void execute() {
-    driveSubsystem.driveArcade(-controller.getLeftY() * DRIVE_SCALING, -controller.getRightX() * ROTATION_SCALING);
+    if(MovementSpeed < -controller.getLeftY() * DRIVE_SCALING){
+      MovementSpeed+= ACCELERATION;
+      if(MovementSpeed > -controller.getLeftY() * DRIVE_SCALING){
+        MovementSpeed= -controller.getLeftY() * DRIVE_SCALING;
+      }
+    }else{
+      MovementSpeed-= ACCELERATION;
+       if(MovementSpeed < -controller.getLeftY() * DRIVE_SCALING){
+        MovementSpeed= -controller.getLeftY() * DRIVE_SCALING;
+      }
+    }
+    if(RotationSpeed < -controller.getRightX() * DRIVE_SCALING){
+      RotationSpeed+=ACCELERATION;
+      if(RotationSpeed > -controller.getRightX() * DRIVE_SCALING){
+        MovementSpeed= -controller.getRightX() * DRIVE_SCALING;
+      }
+    }else{
+       RotationSpeed-=ACCELERATION;
+       if(MovementSpeed < -controller.getRightX() * DRIVE_SCALING){
+        MovementSpeed= -controller.getRightX() * DRIVE_SCALING;
+      }
+    }
+    driveSubsystem.driveArcade(MovementSpeed, RotationSpeed);
   }
 
   // Called once the command ends or is interrupted.
