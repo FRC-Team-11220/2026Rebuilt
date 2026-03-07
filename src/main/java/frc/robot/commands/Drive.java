@@ -35,28 +35,27 @@ public class Drive extends Command {
   // value). The X axis is scaled down so the rotation is more easily
   // controllable.
   @Override
-  //THIS DOESN'T CURRENTLY WORK!!!
   public void execute() {
     if(MovementSpeed < -controller.getLeftY() * DRIVE_SCALING){
-      MovementSpeed+= ACCELERATION;
+      MovementSpeed+= MOVEMENTACCELERATION;
       if(MovementSpeed > -controller.getLeftY() * DRIVE_SCALING){
         MovementSpeed= -controller.getLeftY() * DRIVE_SCALING;
       }
     }else{
-      MovementSpeed-= ACCELERATION;
+      MovementSpeed-= MOVEMENTACCELERATION;
        if(MovementSpeed < -controller.getLeftY() * DRIVE_SCALING){
         MovementSpeed= -controller.getLeftY() * DRIVE_SCALING;
       }
     }
     if(RotationSpeed < -controller.getRightX() * DRIVE_SCALING){
-      RotationSpeed+=ACCELERATION;
+      RotationSpeed+=ROTATIONACCELERATION;
       if(RotationSpeed > -controller.getRightX() * DRIVE_SCALING){
-        MovementSpeed= -controller.getRightX() * DRIVE_SCALING;
+        RotationSpeed= -controller.getRightX() * DRIVE_SCALING;
       }
     }else{
-       RotationSpeed-=ACCELERATION;
-       if(MovementSpeed < -controller.getRightX() * DRIVE_SCALING){
-        MovementSpeed= -controller.getRightX() * DRIVE_SCALING;
+       RotationSpeed-=ROTATIONACCELERATION;
+       if(RotationSpeed < -controller.getRightX() * DRIVE_SCALING){
+        RotationSpeed= -controller.getRightX() * DRIVE_SCALING;
       }
     }
     driveSubsystem.driveArcade(MovementSpeed, RotationSpeed);

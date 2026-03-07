@@ -45,6 +45,8 @@ public final class Constants {
     public static final double LAUNCHING_LAUNCHER_VOLTAGE = 10.6;
     public static final double SPIN_UP_FEEDER_VOLTAGE = -6;
     public static final double SPIN_UP_SECONDS = 1;
+    //this inhibits our launch height
+    public static final double LAUNCH_SCALING = 0.7;
   }
 
   public static final class OperatorConstants {
@@ -59,6 +61,9 @@ public final class Constants {
     public static final double ROTATION_SCALING = .8;
 
     //new variable for speedup
-    public static double ACCELERATION = 0.01;
+    public static double MOVEMENTACCELERATION = 0.02;
+    public static double ROTATIONACCELERATION = 0.01;
+
+    
   }
 }
