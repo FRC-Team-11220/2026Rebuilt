@@ -43,6 +43,8 @@ public final class Constants {
     public static final double INTAKING_INTAKE_VOLTAGE = 10;
     public static final double LAUNCHING_FEEDER_VOLTAGE = 9;
     public static final double LAUNCHING_LAUNCHER_VOLTAGE = 7.6; //10.6
+    public static final double SUPER_LAUNCHING_FEEDER_VOLTAGE = 9;
+    public static final double SUPER_LAUNCHING_LAUNCHER_VOLTAGE = 10.6;
     public static final double SPIN_UP_FEEDER_VOLTAGE = -6;
     public static final double SPIN_UP_SECONDS = 1;
     //this inhibits our launch height

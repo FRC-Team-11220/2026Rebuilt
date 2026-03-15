@@ -14,6 +14,7 @@ import frc.robot.commands.Eject;
 import frc.robot.commands.ExampleAuto;
 import frc.robot.commands.Intake;
 import frc.robot.commands.LaunchSequence;
+import frc.robot.commands.SuperLaunchSequence;
 import frc.robot.subsystems.CANDriveSubsystem;
 import frc.robot.subsystems.CANFuelSubsystem;
 
@@ -66,17 +67,21 @@ public class RobotContainer {
   private void configureBindings() {
 
     // While the left bumper on operator controller is held, intake Fuel
-    operatorController.leftBumper().whileTrue(new Intake(fuelSubsystem));
+    operatorController.rightBumper().whileTrue(new Intake(fuelSubsystem));
     // driverController.leftBumper().whileTrue(new Intake(fuelSubsystem));
     
     // While the right bumper on the operator controller is held, spin up for 1
     // second, then launch fuel. When the button is released, stop.
-    operatorController.rightBumper().whileTrue(new LaunchSequence(fuelSubsystem));
+    operatorController.leftBumper().whileTrue(new LaunchSequence(fuelSubsystem));
     // driverController.rightBumper().whileTrue(new LaunchSequence(fuelSubsystem));
+
+    //While the right bumper on operator controller is held, spin up for 1
+    // second, then super launch the fuel. When the button is released, stop.
+    operatorController.leftTrigger().whileTrue(new SuperLaunchSequence(fuelSubsystem));
     
     // While the A button is held on the operator controller, eject fuel back out
     // the intake
-    operatorController.a().whileTrue(new Eject(fuelSubsystem));
+    operatorController.rightTrigger().whileTrue(new Eject(fuelSubsystem));
     // driverController.a().whileTrue(new Eject(fuelSubsystem));
 
     // Set the default command for the drive subsystem to the command provided by
