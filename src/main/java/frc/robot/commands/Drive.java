@@ -15,8 +15,8 @@ public class Drive extends Command {
   /** Creates a new Drive. */
   CANDriveSubsystem driveSubsystem;
   CommandXboxController controller;
-  private double MovementSpeed = 0;
-  private double RotationSpeed = 0;
+  // private double MovementSpeed = 0;
+  // private double RotationSpeed = 0;
   public Drive(CANDriveSubsystem driveSystem, CommandXboxController driverController) {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(driveSystem);
@@ -29,37 +29,43 @@ public class Drive extends Command {
   public void initialize() {
   }
 
+  //og drive code for testing :)
+  @Override
+  public void execute() {
+    driveSubsystem.driveArcade(-controller.getLeftY() * DRIVE_SCALING, -controller.getRightX() * ROTATION_SCALING);
+  }
+
   // Called every time the scheduler runs while the command is scheduled.
   // The Y axis of the controller is inverted so that pushing the
   // stick away from you (a negative value) drives the robot forwards (a positive
   // value). The X axis is scaled down so the rotation is more easily
   // controllable.
-  @Override
-  public void execute() {
-    if(MovementSpeed < -controller.getLeftY() * DRIVE_SCALING){
-      MovementSpeed+= MOVEMENTACCELERATION;
-      if(MovementSpeed > -controller.getLeftY() * DRIVE_SCALING){
-        MovementSpeed= -controller.getLeftY() * DRIVE_SCALING;
-      }
-    }else{
-      MovementSpeed-= MOVEMENTACCELERATION;
-       if(MovementSpeed < -controller.getLeftY() * DRIVE_SCALING){
-        MovementSpeed= -controller.getLeftY() * DRIVE_SCALING;
-      }
-    }
-    if(RotationSpeed < -controller.getRightX() * DRIVE_SCALING){
-      RotationSpeed+=ROTATIONACCELERATION;
-      if(RotationSpeed > -controller.getRightX() * DRIVE_SCALING){
-        RotationSpeed= -controller.getRightX() * DRIVE_SCALING;
-      }
-    }else{
-       RotationSpeed-=ROTATIONACCELERATION;
-       if(RotationSpeed < -controller.getRightX() * DRIVE_SCALING){
-        RotationSpeed= -controller.getRightX() * DRIVE_SCALING;
-      }
-    }
-    driveSubsystem.driveArcade(MovementSpeed, RotationSpeed);
-  }
+  // @Override
+  // public void execute() {
+  //   if(MovementSpeed < -controller.getLeftY() * DRIVE_SCALING){
+  //     MovementSpeed+= MOVEMENTACCELERATION;
+  //     if(MovementSpeed > -controller.getLeftY() * DRIVE_SCALING){
+  //       MovementSpeed= -controller.getLeftY() * DRIVE_SCALING;
+  //     }
+  //   }else{
+  //     MovementSpeed-= MOVEMENTACCELERATION;
+  //      if(MovementSpeed < -controller.getLeftY() * DRIVE_SCALING){
+  //       MovementSpeed= -controller.getLeftY() * DRIVE_SCALING;
+  //     }
+  //   }
+  //   if(RotationSpeed < -controller.getRightX() * DRIVE_SCALING){
+  //     RotationSpeed+=ROTATIONACCELERATION;
+  //     if(RotationSpeed > -controller.getRightX() * DRIVE_SCALING){
+  //       RotationSpeed= -controller.getRightX() * DRIVE_SCALING;
+  //     }
+  //   }else{
+  //      RotationSpeed-=ROTATIONACCELERATION;
+  //      if(RotationSpeed < -controller.getRightX() * DRIVE_SCALING){
+  //       RotationSpeed= -controller.getRightX() * DRIVE_SCALING;
+  //     }
+  //   }
+  //   driveSubsystem.driveArcade(MovementSpeed, RotationSpeed);
+  // }
 
   // Called once the command ends or is interrupted.
   @Override

@@ -14,6 +14,10 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import static frc.robot.Constants.DriveConstants.*;
 
+// new import for smooter acceleration
+import edu.wpi.first.math.filter.SlewRateLimiter;
+
+
 public class CANDriveSubsystem extends SubsystemBase {
   private final SparkMax leftLeader;
   private final SparkMax leftFollower;
@@ -71,8 +75,10 @@ public class CANDriveSubsystem extends SubsystemBase {
   }
 
   public void driveArcade(double xSpeed, double zRotation) {
+    // set up new slew rate limiter
+    SlewRateLimiter filter = new SlewRateLimiter(0.5);
     // This is a test by jacob, delete the -1s if necessisary
-    drive.arcadeDrive(-1*xSpeed, -1*zRotation);
+    drive.arcadeDrive(filter.calculate(-1*xSpeed), -1*zRotation);
   }
 
 }
