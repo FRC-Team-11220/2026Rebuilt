@@ -74,11 +74,12 @@ public class CANDriveSubsystem extends SubsystemBase {
   public void periodic() {
   }
   // set up new slew rate limiter
-  private final SlewRateLimiter filter = new SlewRateLimiter(0.5);
+  private final SlewRateLimiter speedFilter = new SlewRateLimiter(2.5, -2.5, 0.0);
+  private final SlewRateLimiter rotationFilter = new SlewRateLimiter(3.0, -3.0, 0.0);
 
   public void driveArcade(double xSpeed, double zRotation) {
     // This is a test by jacob, delete the -1s if necessisary
-    drive.arcadeDrive(filter.calculate(-1*xSpeed), -1*zRotation);
+    drive.arcadeDrive(speedFilter.calculate(-1*xSpeed), rotationFilter.calculate(-1*zRotation));
   }
 
 }
