@@ -6,6 +6,9 @@ package frc.robot;
 
 import edu.wpi.first.hal.HAL;
 import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.cscore.UsbCamera;
+import edu.wpi.first.cscore.VideoSink;
+import edu.wpi.first.cscore.VideoSource.ConnectionStrategy;
 import edu.wpi.first.hal.FRCNetComm.tResourceType;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -22,9 +25,17 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
  */
 public class Robot extends TimedRobot {
 
+  UsbCamera forwardCam;
+  UsbCamera backwardCam; 
+  // VideoSink server;
+
   //test webcam code
   public Robot() {
-    CameraServer.startAutomaticCapture();
+    forwardCam = CameraServer.startAutomaticCapture(0);
+    backwardCam = CameraServer.startAutomaticCapture(1);
+    // server = CameraServer.getServer();
+    // forwardCam.setConnectionStrategy(ConnectionStrategy.kKeepOpen);
+    // backwardCam.setConnectionStrategy(ConnectionStrategy.kKeepOpen);
   }
   //end test
   private Command m_autonomousCommand;
