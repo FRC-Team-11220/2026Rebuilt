@@ -29,23 +29,24 @@ public final class Constants {
 
   public static final class FuelConstants {
     // Motor controller IDs for Fuel Mechanism motors
-    public static final int FEEDER_MOTOR_ID = 11;
-    public static final int INTAKE_LAUNCHER_MOTOR_ID = 19;
+    public static final int FEEDER_MOTOR_ID = 11; // Falcon Motor
+    public static final int INTAKE_LAUNCHER_MOTOR_ID = 19; // Kraken Motor
 
     // Current limit and nominal voltage for fuel mechanism motors.
-    public static final int FEEDER_MOTOR_CURRENT_LIMIT = 80;
-    public static final int LAUNCHER_MOTOR_CURRENT_LIMIT = 80;
+    public static final int FEEDER_MOTOR_CURRENT_LIMIT = 80; // Falcon Motor, Neo/CIMS value: 60
+    public static final int LAUNCHER_MOTOR_CURRENT_LIMIT = 80; // Kraken Motor, Neo/CIMS value: 60
 
     // Voltage values for various fuel operations. These values may need to be tuned
     // based on exact robot construction.
     // See the Software Guide for tuning information
-    public static final double INTAKING_FEEDER_VOLTAGE = -12;
-    public static final double INTAKING_INTAKE_VOLTAGE = 10;
-    public static final double LAUNCHING_FEEDER_VOLTAGE = 9;
-    public static final double LAUNCHING_LAUNCHER_VOLTAGE = 7.6; //10.6
-    public static final double SUPER_LAUNCHING_FEEDER_VOLTAGE = 9;
-    public static final double SUPER_LAUNCHING_LAUNCHER_VOLTAGE = 10.6;
-    public static final double SPIN_UP_FEEDER_VOLTAGE = -6;
+    public static final double INTAKING_FEEDER_VOLTAGE = -12; // Falcon Motor, original value: 
+    public static final double INTAKING_INTAKE_VOLTAGE = 5; // Kraken Motor, original value: 10
+    
+    public static final double LAUNCHING_FEEDER_VOLTAGE = 9; // Falcon motor, original value: 9
+    public static final double LAUNCHING_LAUNCHER_VOLTAGE = 7.6; // Kraken motor, original value: 10.6
+    public static final double SUPER_LAUNCHING_FEEDER_VOLTAGE = 9; // Falcon motor, original value: 9
+    public static final double SUPER_LAUNCHING_LAUNCHER_VOLTAGE = 10.6; // Kraken motor, original value: 10.6
+    public static final double SPIN_UP_FEEDER_VOLTAGE = -6; // Falcon motor, original value: 
     public static final double SPIN_UP_SECONDS = 1;
     //this inhibits our launch height
     //public static final double LAUNCH_SCALING = 0.7;
