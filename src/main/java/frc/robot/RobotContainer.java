@@ -50,7 +50,15 @@ public class RobotContainer {
     // Set the options to show up in the Dashboard for selecting auto modes. If you
     // add additional auto modes you can add additional lines here with
     // autoChooser.addOption
+    //NOTE THESE ALL RUN THE SAME COMMAND YOU HAVE TO EDIT THE FILES TO ACTUALLY CODE THE AUTONOMOUS
     autoChooser.setDefaultOption("Autonomous", new ExampleAuto(driveSubsystem, fuelSubsystem));
+    autoChooser.addOption("POS 1 SHOOT", getAutonomousCommand());
+    autoChooser.addOption("POS 2 SHOOT", getAutonomousCommand());
+    autoChooser.addOption("POS 3 SHOOT", getAutonomousCommand());
+    autoChooser.addOption("POS 1 COLLECT", getAutonomousCommand());
+    autoChooser.addOption("POS 2 COLLECT", getAutonomousCommand());
+    autoChooser.addOption("POS 3 COLLECT", getAutonomousCommand());
+
   }
 
   /**
@@ -72,12 +80,12 @@ public class RobotContainer {
     
     // While the right bumper on the operator controller is held, spin up for 1
     // second, then launch fuel. When the button is released, stop.
-    operatorController.leftBumper().whileTrue(new LaunchSequence(fuelSubsystem));
+    operatorController.leftBumper().whileTrue(new LaunchSequence(fuelSubsystem).repeatedly());
     // driverController.rightBumper().whileTrue(new LaunchSequence(fuelSubsystem));
 
     //While the right bumper on operator controller is held, spin up for 1
     // second, then super launch the fuel. When the button is released, stop.
-    operatorController.leftTrigger().whileTrue(new SuperLaunchSequence(fuelSubsystem));
+    operatorController.leftTrigger().whileTrue(new SuperLaunchSequence(fuelSubsystem).repeatedly());
     
     // While the A button is held on the operator controller, eject fuel back out
     // the intake

@@ -11,6 +11,6 @@ public class SuperLaunchSequence extends SequentialCommandGroup {
     // addCommands(new FooCommand(), new BarCommand());
     addCommands(
         new SpinUp(fuelSubsystem).withTimeout(FuelConstants.SPIN_UP_SECONDS),
-        new SuperLaunch(fuelSubsystem));
+        new SuperLaunch(fuelSubsystem).withTimeout(FuelConstants.LAUNCH_SECONDS));
   } 
 }
