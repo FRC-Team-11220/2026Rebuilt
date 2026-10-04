@@ -73,7 +73,8 @@ public class CANDriveSubsystem extends SubsystemBase {
     System.out.println(LimelightHelpers.getTX(""));
   }
    
-   
+  //While A is held, the robot goes through auto aiming process
+   driverController.a().whileTrue(new AutoAim(DriveSubsystem));
 
   @Override
   public void periodic() {

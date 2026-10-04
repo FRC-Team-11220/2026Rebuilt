@@ -87,7 +87,7 @@ public class RobotContainer {
     // second, then super launch the fuel. When the button is released, stop.
     operatorController.leftTrigger().whileTrue(new SuperLaunchSequence(fuelSubsystem).repeatedly());
     
-    // While the A button is held on the operator controller, eject fuel back out
+    // While the right trigger on the operator controller is held, eject fuel back out
     // the intake
     operatorController.rightTrigger().whileTrue(new Eject(fuelSubsystem));
     // driverController.a().whileTrue(new Eject(fuelSubsystem));
