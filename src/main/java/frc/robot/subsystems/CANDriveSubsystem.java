@@ -17,6 +17,7 @@ import static frc.robot.Constants.DriveConstants.*;
 // new import for smooter acceleration
 import edu.wpi.first.math.filter.SlewRateLimiter;
 
+import frc.robot.LimelightHelpers;
 
 public class CANDriveSubsystem extends SubsystemBase {
   private final SparkMax leftLeader;
@@ -69,7 +70,10 @@ public class CANDriveSubsystem extends SubsystemBase {
     // so that postive values drive both sides forward
     config.inverted(true);
     leftLeader.configure(config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+    System.out.println(LimelightHelpers.getTX(""));
   }
+   
+   
 
   @Override
   public void periodic() {
@@ -77,10 +81,12 @@ public class CANDriveSubsystem extends SubsystemBase {
   // set up new slew rate limiter
   private final SlewRateLimiter speedFilter = new SlewRateLimiter(2.5, -2.5, 0.0);
   private final SlewRateLimiter rotationFilter = new SlewRateLimiter(3.0, -3.0, 0.0);
-
+  
+  
   public void driveArcade(double xSpeed, double zRotation) {
     // This is a test by jacob, delete the -1s if necessisary
     drive.arcadeDrive(speedFilter.calculate(-1*xSpeed), rotationFilter.calculate(-1*zRotation));
+    System.out.println(LimelightHelpers.getTX(""));
   }
 
 }

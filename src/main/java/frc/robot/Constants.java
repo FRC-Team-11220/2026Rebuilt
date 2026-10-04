@@ -47,7 +47,7 @@ public final class Constants {
     public static final double SUPER_LAUNCHING_FEEDER_VOLTAGE = 9; // Falcon motor, original value: 9
     public static final double SUPER_LAUNCHING_LAUNCHER_VOLTAGE = 10.6; // Kraken motor, original value: 10.6
     public static final double SPIN_UP_FEEDER_VOLTAGE = 6; // Falcon motor, original value: 6
-    public static final double SPIN_UP_SECONDS = 2; // original value: 1
+    public static final double SPIN_UP_SECONDS = 2.5; // original value: 1, changed to 2
     public static final double LAUNCH_SECONDS = 3; //time before reinitiating SpinUp
     //this inhibits our launch height
     //public static final double LAUNCH_SCALING = 0.7;

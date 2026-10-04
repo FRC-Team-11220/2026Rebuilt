@@ -11,20 +11,20 @@ import frc.robot.LimelightHelpers;
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
-public class POS1SHOOT extends SequentialCommandGroup {
+public class POS1CAM extends SequentialCommandGroup {
   /* Creates a new ExampleAuto. */
   
-  public POS1SHOOT(CANDriveSubsystem driveSubsystem, CANFuelSubsystem ballSubsystem) {
+  public POS1CAM(CANDriveSubsystem driveSubsystem, CANFuelSubsystem ballSubsystem) {
     // Add your commands in the addCommands() call, e.g.
-    // addCommands(new FooCommand(), new BarCommand());
-    //addCommands(
+    //addCommands(new FooCommand(), new BarCommand());
+    addCommands(
     // Drive backwards for .25 seconds. The driveArcadeAuto command factory
     // intentionally creates a command which does not end which allows us to control
     // the timing using the withTimeout decorator
-    //new AutoDrive(driveSubsystem,0.5,  0.0).withTimeout(.25),
+    new AutoDrive(driveSubsystem,0.5,  0.0).withTimeout(.25),
     // Spin up the launcher for 1 second and then launch balls for 9 seconds, for a
     // total of 10 seconds
-   // new Launch(ballSubsystem).withTimeout(10));
+    new Launch(ballSubsystem).withTimeout(10));
    System.out.println(LimelightHelpers.getTX(""));
 
   }

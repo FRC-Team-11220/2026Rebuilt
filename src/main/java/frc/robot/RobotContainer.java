@@ -52,12 +52,12 @@ public class RobotContainer {
     // autoChooser.addOption
     //NOTE THESE ALL RUN THE SAME COMMAND YOU HAVE TO EDIT THE FILES TO ACTUALLY CODE THE AUTONOMOUS
     autoChooser.setDefaultOption("Autonomous", new ExampleAuto(driveSubsystem, fuelSubsystem));
-    autoChooser.addOption("POS 1 SHOOT", getAutonomousCommand());
-    autoChooser.addOption("POS 2 SHOOT", getAutonomousCommand());
-    autoChooser.addOption("POS 3 SHOOT", getAutonomousCommand());
-    autoChooser.addOption("POS 1 COLLECT", getAutonomousCommand());
-    autoChooser.addOption("POS 2 COLLECT", getAutonomousCommand());
-    autoChooser.addOption("POS 3 COLLECT", getAutonomousCommand());
+    autoChooser.addOption("POS1SHOOT", getAutonomousCommand());
+    autoChooser.addOption("POS2SHOOT", getAutonomousCommand());
+    autoChooser.addOption("POS3SHOOT", getAutonomousCommand());
+    autoChooser.addOption("POS1COLLECT", getAutonomousCommand());
+    autoChooser.addOption("POS2COLLECT", getAutonomousCommand());
+    autoChooser.addOption("POS3COLLECT", getAutonomousCommand());
 
   }
 

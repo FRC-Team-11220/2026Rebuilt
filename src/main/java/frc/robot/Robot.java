@@ -27,15 +27,22 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
  * project.
  */
 public class Robot extends TimedRobot {
-
+/* 
+  2 lines below are code for old USB cam
   UsbCamera forwardCam;
   UsbCamera backwardCam; 
+*/
   // VideoSink server;
 
   //test webcam code
   public Robot() {
+
+    //2 line below are old USB cam code
+    /* 
     forwardCam = CameraServer.startAutomaticCapture(0);
     backwardCam = CameraServer.startAutomaticCapture(1);
+    */
+
     // server = CameraServer.getServer();
     // forwardCam.setConnectionStrategy(ConnectionStrategy.kKeepOpen);
     // backwardCam.setConnectionStrategy(ConnectionStrategy.kKeepOpen);
