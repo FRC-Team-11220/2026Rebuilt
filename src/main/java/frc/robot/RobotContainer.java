@@ -14,9 +14,11 @@ import frc.robot.commands.Eject;
 import frc.robot.commands.ExampleAuto;
 import frc.robot.commands.Intake;
 import frc.robot.commands.LaunchSequence;
+import frc.robot.commands.AutoAim;
 import frc.robot.commands.SuperLaunchSequence;
 import frc.robot.subsystems.CANDriveSubsystem;
 import frc.robot.subsystems.CANFuelSubsystem;
+
 
 /**
  * This class is where the bulk of the robot should be declared. Since
@@ -87,10 +89,13 @@ public class RobotContainer {
     // second, then super launch the fuel. When the button is released, stop.
     operatorController.leftTrigger().whileTrue(new SuperLaunchSequence(fuelSubsystem).repeatedly());
     
-    // While the A button is held on the operator controller, eject fuel back out
+    // While the right trigger on the operator controller is held, eject fuel back out
     // the intake
     operatorController.rightTrigger().whileTrue(new Eject(fuelSubsystem));
     // driverController.a().whileTrue(new Eject(fuelSubsystem));
+
+    //While A is held, the robot goes through auto aiming process
+    driverController.a().whileTrue(new AutoAim(driveSubsystem));
 
     // Set the default command for the drive subsystem to the command provided by
     // factory with the values provided by the joystick axes on the driver
