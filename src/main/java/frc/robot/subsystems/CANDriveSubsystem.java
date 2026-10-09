@@ -4,6 +4,7 @@
 
 package frc.robot.subsystems;
 
+import com.revrobotics.REVLibError;
 import com.revrobotics.spark.SparkBase.PersistMode;
 import com.revrobotics.spark.SparkBase.ResetMode;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
@@ -71,6 +72,14 @@ public class CANDriveSubsystem extends SubsystemBase {
     config.inverted(true);
     leftLeader.configure(config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
     System.out.println(LimelightHelpers.getTX(""));
+
+    //@John Eliot
+    //completed clear faults call
+    //watch out to make sure this does not call too often later
+    REVLibError check= leftLeader.clearFaults();
+    check= rightLeader.clearFaults();
+    check= leftLeader.clearFaults();
+    check= rightFollower.clearFaults();
   }
    
 

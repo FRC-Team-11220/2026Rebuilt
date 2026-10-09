@@ -14,6 +14,8 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import com.revrobotics.REVLibError;
+import com.revrobotics.spark.SparkLowLevel;
 
 
 
@@ -66,6 +68,11 @@ public class Robot extends TimedRobot {
 
     // Used to track usage of Kitbot code, please do not remove.
     HAL.report(tResourceType.kResourceType_Framework, 10);
+
+    //clear sticky faults
+    REVLibError check= m_motor.clearFaults();
+    
+    
   }
 
   /**
