@@ -69,8 +69,6 @@ public class Robot extends TimedRobot {
     // Used to track usage of Kitbot code, please do not remove.
     HAL.report(tResourceType.kResourceType_Framework, 10);
 
-    //clear sticky faults
-    REVLibError check= m_motor.clearFaults();
     
     
   }
