@@ -39,9 +39,9 @@ public class AutoAim extends Command{
 
     if(Math.abs(averageX) >= 3){
         if(averageX > 0){
-        driveSubsystem.driveArcade(0, 1);
+        driveSubsystem.driveArcade(0, -0.3);
         }else{
-        driveSubsystem.driveArcade(0, -1);
+        driveSubsystem.driveArcade(0, 0.3);
         }
     }
     /*pseudo code

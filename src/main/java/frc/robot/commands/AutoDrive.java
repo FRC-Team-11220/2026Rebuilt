@@ -6,6 +6,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.CANDriveSubsystem;
+import java.util.concurrent.ThreadLocalRandom;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
 public class AutoDrive extends Command {
@@ -38,6 +39,8 @@ public class AutoDrive extends Command {
   @Override
   public void end(boolean interrupted) {
     driveSubsystem.driveArcade(0, 0);
+    try{Thread.sleep(500);}
+    catch (InterruptedException e) {System.out.print("timer failed");}
   }
 
   // Returns true when the command should end.
